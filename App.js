@@ -285,9 +285,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#1C1C1C',
-    // alignItems: 'center',
-    // justifyContent: 'center',
-    // marginTop: 20,
   },
   icon: {
     width: 150,
@@ -326,8 +323,6 @@ const styles = StyleSheet.create({
   daily: {
     flex: 1,
     flexDirection: "row",
-    // alignItems: "center",
-    // justifyContent: "space-around",
   },
   dailyText: {
     fontSize: 10,
@@ -335,15 +330,12 @@ const styles = StyleSheet.create({
   },
   dailyContainer: {
     flex: 1,
-    // flexDirection: "column",
     alignItems: "center",
-    // justifyContent: "space-around",
     marginTop: -75,
     marginBottom: 75,
   },
   dailyBlock: {
     flex: 1,
-    // flexDirection: "column",
     justifyContent: "center",
     alignItems: "center",
     marginBottom: 20,
