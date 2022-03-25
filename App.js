@@ -115,7 +115,6 @@ export default function App() {
     return daysArray;
   }
 
-  // let camelCaseIconNames;
   const toCamelCase = () => {
     let icon = weatherData.currently.icon;
     return icon.toLowerCase().replace(/([-_][a-z])/g, group =>
@@ -128,8 +127,7 @@ export default function App() {
 
   let images = [cloudy, clearDay, clearNight, fog, partlyCloudyDay, partlyCloudyNight, rain, sleet, snow, wind];
   const image = () => {
-    camelCaseName = toCamelCase();
-    console.log(camelCaseName);
+    let camelCaseName = toCamelCase();
     for (let i = 0; i < images.length; i++) {
       if (Object.keys(imagesObject)[i] == camelCaseName) {
         setWeatherIcons(images[i]);
@@ -183,34 +181,32 @@ export default function App() {
         <Text style={styles.text}>{weatherData.currently.temperature}°C</Text>
         <Text style={styles.text}>{weatherData.currently.summary}</Text>
         <Text style={styles.text}>Aparente: {weatherData.currently.apparentTemperature}°C</Text>
+
+        <View style={styles.extraInfo}>
+          <View style={styles.circle}>
+            <Image source={windSignal} style={styles.extraInfoIcon} />
+            <Text style={styles.text}>{weatherData.currently.windSpeed}</Text>
+          </View>
+          <View style={styles.circle}>
+            <Image source={humidity} style={styles.extraInfoIcon} />
+            <Text style={styles.text}>{weatherData.currently.humidity}</Text>
+          </View>
+          <View style={styles.circle}>
+            <Image source={precipitation} style={styles.extraInfoIcon} />
+            <Text style={styles.text}>{weatherData.currently.precipProbability}</Text>
+          </View>
+        </View>
       </View>
 
-      <View style={styles.extraInfo}>
-        <View style={styles.circle}>
-          <Image source={windSignal} style={styles.extraInfoIcon} />
-          <Text style={styles.text}>{weatherData.currently.windSpeed}</Text>
-        </View>
-        <View style={styles.circle}>
-          <Image source={humidity} style={styles.extraInfoIcon} />
-          <Text style={styles.text}>{weatherData.currently.humidity}</Text>
-        </View>
-        <View style={styles.circle}>
-          <Image source={precipitation} style={styles.extraInfoIcon} />
-          <Text style={styles.text}>{weatherData.currently.precipProbability}</Text>
-        </View>
-      </View>
 
-      <View>
-        <View >
-          <Image style={styles.dailyIconSummary} source={setDailyIconSummary()} />
-          <Text style={styles.text}>{dailySummary}</Text>
-        </View>
+
+      <View style={styles.dailySummary}>
+        <Image style={styles.dailyIconSummary} source={setDailyIconSummary()} />
+        <Text style={styles.text}>{dailySummary}</Text>
       </View>
 
       <View style={styles.dailyContainer}>
-
         <View style={styles.daily}>
-
           <View style={styles.dailyBlock}>
             <Text style={styles.dailyText}>{firstWeek()[0]}</Text>
             <Image style={styles.dailyImage} source={setDailyImages()[0]} />
@@ -289,8 +285,8 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#1C1C1C',
-    alignItems: 'center',
-    justifyContent: 'center',
+    // alignItems: 'center',
+    // justifyContent: 'center',
     // marginTop: 20,
   },
   icon: {
@@ -302,11 +298,12 @@ const styles = StyleSheet.create({
     flexDirection: "column",
     alignItems: "center",
     justifyContent: "center",
-    // marginTop: 20,
+    marginTop: 40,
   },
   extraInfo: {
     flex: 1,
     flexDirection: "row",
+    marginTop: 20,
   },
   extraInfoIcon: {
     width: 50,
@@ -341,19 +338,28 @@ const styles = StyleSheet.create({
     // flexDirection: "column",
     alignItems: "center",
     // justifyContent: "space-around",
+    marginTop: -75,
+    marginBottom: 75,
   },
   dailyBlock: {
     flex: 1,
     // flexDirection: "column",
-    // justifyContent: "center",
+    justifyContent: "center",
     alignItems: "center",
+    marginBottom: 20,
   },
   dailyImage: {
     height: 25,
     width: 25,
   },
   dailyIconSummary: {
-    height: 100,
-    width: 100,
+    height: 85,
+    width: 85,
   },
+  dailySummary: {
+    flex: 1,
+    marginTop: -70,
+    alignItems: "center",
+    justifyContent: "center",
+  }
 });
