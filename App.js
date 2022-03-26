@@ -4,7 +4,6 @@ StatusBar.setBackgroundColor("#1C1C1C");
 import { StyleSheet, Text, View, Image, ScrollView } from 'react-native';
 import * as Location from 'expo-location';
 import { useEffect, useState } from 'react';
-import { FlatList } from 'react-native-web';
 
 import cloudy from './assets/cloudy.png';
 import clearDay from './assets/weather-icons/clear-day.png';
