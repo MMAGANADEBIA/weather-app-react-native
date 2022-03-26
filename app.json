@@ -23,7 +23,9 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/cloudy.png",
         "backgroundColor": "#1C1C1C"
-      }
+      },
+      "package": "com.mm.weatherApp",
+      "versionCode": 1
     },
     "web": {
       "favicon": "./assets/cloudy.png"
